@@ -13,8 +13,8 @@ class Shake(Wiggle):
 
 class ShakeScene(Scene):
     def construct(self):
-        dots = VGroup(*[Dot(radius=0.15, color=ORANGE) for i in range(15)])
-        dots.arrange(RIGHT, buff=0.3)
+        dots = VGroup(*[Dot(radius=0.15, color='#ff6470') for i in range(10)])
+        dots.arrange(RIGHT, buff=0.1)
         self.add(dots)
 
         for i in range(6):
@@ -23,8 +23,7 @@ class ShakeScene(Scene):
                     *[Shake(dot, direction=1.5 * DOWN, n_wiggles=3) for dot in dots],
                     lag_ratio=0.02
                 ),
-                run_time=3,
-                # rate_func=linear,
+                run_time=2,
             )
             self.wait(0.01)
         self.wait(2)
